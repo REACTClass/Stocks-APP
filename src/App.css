@@ -23,3 +23,8 @@ nav a {
   color: white;
 }
 
+.dash-container {
+  display: flex;
+  flex-direction: column;
+}
+
