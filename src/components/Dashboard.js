@@ -1,11 +1,12 @@
 import React from 'react'
 import Data from '../Data'
+import {Link} from 'react-router-dom'
 
-export default function Dashboard ({item}) {
+export default function Dashboard () {
     return (
         <div className='dash-container'>
             <h1>Most Active Stocks</h1>
-            <table striped>
+            <table>
                 <thead colSpan={3}>
                 <tr>
                     <th>Company Name</th>
@@ -16,8 +17,8 @@ export default function Dashboard ({item}) {
                 <tbody>
                     {Data.map((item, index) => {
                     return (
-                    <tr>
-                        <td key={index}>{item.name}</td>
+                    <tr key={index}>
+                        <td><Link to={`/stocks/:${item.symbol}`}>{item.name}</Link></td>
                         <td>{item.lastPrice}</td>
                         <td>{item.change.toFixed(2)}</td>
                     </tr>
@@ -25,7 +26,7 @@ export default function Dashboard ({item}) {
                     })}
                 </tbody>
             </table>
-{/* name price change */}
         </div>
     )
 }
+
